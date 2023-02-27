@@ -1,53 +1,37 @@
 version: '3.4'
 
-volumes:
-  geth_data:
-  lighthouse_data:
-
 services:
   geth:
-    build:
-      context: ./geth
-      dockerfile: Dockerfile.geth
+    image: ethpandaops/geth:mdehoog-eip4844
     ports:
       - '8545:8545'
+      - '8546:8546'
+      - '8547:8547'
+      - '8551:8551'
       - '30303:30303'
-    command: /usr/local/bin/geth.sh
+    entrypoint: docker-entrypoint.sh
     volumes:
-      - 'geth_data:/db'
+      - './data:/data'
       - type: bind
-        source: ./geth/geth.sh
-        target: /usr/local/bin/geth.sh
+        source: ./geth/docker-entrypoint.sh
+        target: /usr/local/bin/docker-entrypoint.sh
       - type: bind
         source: ./geth/jwtsecret
         target: /config/jwtsecret
-      - type: bind
-        source: ./geth/genesis.json
-        target: /config/genesis.json
 
-  lighthouse:
-    build:
-      context: ./lighthouse
-      dockerfile: Dockerfile.lighthouse
+  prysm:
+    image: ethpandaops/prysm:eip4844-1-08a910e
+    entrypoint: docker-entrypoint.sh
     ports:
       - "5052:5052"
       - "8000:8000"
       - "9000:9000"
-    command: >
-      lighthouse bn
-      --network eip4844
-      --datadir /data
-      --execution-jwt /config/jwtsecret
-      --execution-endpoint http://geth:8551
-      --debug-level debug
-      --trusted-setup-file /config/trusted_setup.txt
-      --boot-nodes enr:-Iq4QAw-ZQb0IiosZgDDcK5ehLs1XmwT0BWU1E1W3ZnhlAAwAE3I46dgCsCbeB5QUwcpDmpFfveTfKF7-tiIg0KWGjqGAYXoIfe6gmlkgnY0gmlwhKEjXcqJc2VjcDI1NmsxoQN4HpB2GMFY2MzwO9hGFjqRG47OX4hGDliAG-mJNWkEr4N1ZHCCIyk 
-      --http
+      - "13000:13000"
     volumes:
-      - lighthouse_data:/data
-      - type: bind
-        source: ./lighthouse/trusted_setup.txt
-        target: /config/trusted_setup.txt
+      - './data:/data'
       - type: bind
         source: ./geth/jwtsecret
         target: /config/jwtsecret
+      - type: bind
+        source: ./prysm/docker-entrypoint.sh
+        target: /usr/local/bin/docker-entrypoint.sh
