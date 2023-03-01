@@ -23,9 +23,8 @@ services:
     image: ethpandaops/prysm:eip4844-1-08a910e
     entrypoint: docker-entrypoint.sh
     ports:
-      - "5052:5052"
-      - "8000:8000"
-      - "9000:9000"
+      - "3500:3500"
+      - "4000:4000"
       - "13000:13000"
     volumes:
       - './data:/data'
