@@ -1,4 +1,4 @@
-# Running a node (Lighthouse/Geth) on EIP-4844 devnet-5
+# Running a node (Prysm/Geth) on EIP-4844 devnet-5
 
 Docker Compose setup for running a Prysm/Geth node on devnet v5. Uses docker images from `eip4844` branches of Prysm and Geth.
 
