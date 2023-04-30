@@ -10,6 +10,6 @@ make run
 
 ## References
 
-- [EIP4844-Devnet 5 spec](https://hackmd.io/@inphi/HJZo4vQGn#)
-- [EIP4844 devnet-4 resources](https://4844-devnet-5.ethpandaops.io)
-- [Blobscan](https://blobscan.4844-devnet-5.ethpandaops.io/)
+- [EIP4844 devnet 5 spec](https://hackmd.io/@inphi/HJZo4vQGn#)
+- [EIP4844 devnet 5 resources](https://4844-devnet-5.ethpandaops.io)
+- [Blobscan](https://blobscan.com)
