@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   geth:
-    image: ethpandaops/geth:mdehoog-eip4844
+    image: ethpandaops/geth:mdehoog-eip4844-7d7c642
     ports:
       - '8545:8545'
       - '8546:8546'
@@ -20,7 +20,7 @@ services:
         target: /config/jwtsecret
 
   prysm:
-    image: ethpandaops/prysm:eip4844-1-08a910e
+    image: ethpandaops/prysm:eip4844-8efb57c
     entrypoint: docker-entrypoint.sh
     ports:
       - "3500:3500"

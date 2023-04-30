@@ -1,8 +1,8 @@
 #!/bin/sh
 set -ue
 
-BOOTNODE_URI=https://config.4844-devnet-4.ethpandaops.io/el/bootnodes
-GENESIS_URI=https://config.4844-devnet-4.ethpandaops.io/el/genesis.json
+BOOTNODE_URI=https://config.4844-devnet-5.ethpandaops.io/el/bootnodes
+GENESIS_URI=https://config.4844-devnet-5.ethpandaops.io/el/genesis.json
 
 if ! [ -f /data/genesis_init_done ];
 then
