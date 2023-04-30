@@ -26,20 +26,20 @@ echo "bootnode init done: $(cat /data/testnet_spec/bootstrap_nodes.txt)";
 
 # --p2p-host-ip=$(POD_IP)
 exec /app/cmd/beacon-chain/beacon-chain \
-	--accept-terms-of-use=true \
-	--datadir=/data \
-	--p2p-tcp-port=13000 \
-	--p2p-udp-port=13000 \
-	--rpc-host=0.0.0.0 \
-	--rpc-port=4000 \
-	--jwt-secret=/config/jwtsecret \
-	--grpc-gateway-host=0.0.0.0 \
-	--grpc-gateway-port=3500 \
-	--monitoring-host=0.0.0.0 \
-	--monitoring-port=8080 \
-	--bootstrap-node=/data/testnet_spec/bootstrap_nodes.txt \
-	--genesis-state=/data/testnet_spec/genesis.ssz \
-	--chain-config-file=/data/testnet_spec/config.yaml \
-	--contract-deployment-block=/data/testnet_spec/deploy_block.txt \
-	--execution-endpoint=http://geth:8551 \
-	--min-sync-peers=1 
+    --accept-terms-of-use=true \
+    --datadir=/data \
+    --p2p-tcp-port=13000 \
+    --p2p-udp-port=13000 \
+    --rpc-host=0.0.0.0 \
+    --rpc-port=4000 \
+    --jwt-secret=/config/jwtsecret \
+    --grpc-gateway-host=0.0.0.0 \
+    --grpc-gateway-port=3500 \
+    --monitoring-host=0.0.0.0 \
+    --monitoring-port=8080 \
+    --bootstrap-node="enr:-MS4QBEfqmQ7zLz7EuRC8xvAgbvuy5Cn0VrBVU27U6Rtq5nzPg1W2gyahsvCSie68A1gCyLamhK1BhOpxw8oDfiTNiEJh2F0dG5ldHOIAAAAAAAAAACEZXRoMpA9CJoRUEhEBf__________gmlkgnY0gmlwhIbRx2aJc2VjcDI1NmsxoQJoQoV-vbiuItOSCsczcQ9vvL_IoaNaslVeqUpnyxP0jYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo" \
+    --genesis-state=/data/testnet_spec/genesis.ssz \
+    --chain-config-file=/data/testnet_spec/config.yaml \
+    --contract-deployment-block=0 \
+    --execution-endpoint=http://geth:8551 \
+    --min-sync-peers=1
