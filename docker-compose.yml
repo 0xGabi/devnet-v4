@@ -6,6 +6,7 @@ volumes:
 
 services:
   geth:
+    image: blossomlabs/eip4844-devnet:geth
     build:
       context: ./geth
       dockerfile: Dockerfile.geth
@@ -29,6 +30,7 @@ services:
         target: /config/genesis.json
 
   lighthouse:
+    image: blossomlabs/eip4844-devnet:lighthouse
     build:
       context: ./lighthouse
       dockerfile: Dockerfile.lighthouse
