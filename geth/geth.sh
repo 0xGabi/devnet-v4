@@ -6,7 +6,7 @@ exec geth \
   --datadir /db \
   --networkid 4844001005 \
   --syncmode=full \
-  --verbosity 4 \
+  --verbosity ${VERBOSITY} \
   --authrpc.jwtsecret /config/jwtsecret \
   --http \
   --http.addr=0.0.0.0 \
