@@ -1,6 +1,6 @@
-# Running a node (Lighthouse/Geth) on EIP-4844 devnet-5
+# Running a node (Nethermind/lodestar) on EIP-4844 devnet-6
 
-Docker Compose setup for running a Lighthouse/Geth node on devnet v5. Builds docker images from `eip4844` branches of Lighthouse and Geth.
+This is WIP, not working.
 
 ## Run with Docker
 
@@ -8,16 +8,3 @@ Docker Compose setup for running a Lighthouse/Geth node on devnet v5. Builds doc
 docker-compose up
 ```
 
-To rebuild images from latest geth & lighthouse repos:
-
-```
-docker-compose build --no-cache
-```
-
-## How to test
-
-https://hackmd.io/@jimmygchen/H1XUtBIfn
-
-## References 
-
-- [4844-devnet-5](https://4844-devnet-5.ethpandaops.io/)
