@@ -1,8 +1,8 @@
 #!/bin/sh
 set -ue
 
-BOOTNODE_URI=https://config.4844-devnet-5.ethpandaops.io/el/bootnodes
-GENESIS_URI=https://config.4844-devnet-5.ethpandaops.io/el/genesis.json
+BOOTNODE_URI=https://config.4844-devnet-6.ethpandaops.io/el/bootnodes
+GENESIS_URI=https://config.4844-devnet-6.ethpandaops.io/el/genesis.json
 
 if ! [ -f /data/genesis_init_done ];
 then
@@ -18,10 +18,11 @@ else
 fi;
 echo "bootnode init done: $(cat /data/bootnodes.txt)";
 
+# --networkid="$(cat /data/chainid.txt)" \
 exec geth \
 	--datadir /data \
 	--bootnodes="$(tr '\n' ',' < /data/bootnodes.txt)" \
-	--networkid="$(cat /data/chainid.txt)" \
+	--networkid="4844001006" \
 	--ws \
 	--ws.addr=0.0.0.0 \
 	--ws.api="eth,net,engine,web3,txpool" \
