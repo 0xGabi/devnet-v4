@@ -3,6 +3,7 @@
 version: '3.7'
 
 volumes:
+  nethermind-db:
   nethermind-data:
   lodestar-data:
 
@@ -17,10 +18,14 @@ services:
       --Discovery.Bootnodes=enode://f5c4a7b3b0d4b16853ff82e76732c9f61f13d3ce376d45af5a3de6cdff0305b1ee29c12a9ca885e4ccdf79fefc5a3eeb6ecb1fbd4b0473b4b2b8ef55cc07fb11@64.225.71.71:30303?discport=30303,enode://b48beab2c62e8c38e9c9a93901b5c29806337cfde8afe2167bcef527c23b8114f7456c9778c0d4a125f4fe6eb708632ee37980449787cdb6e2981cd4eaaca53b@64.225.69.243:30303?discport=30303,enode://d289bafeae68a56c2942989ec4044baac1295222c3d41fa8e5b3398a1cf83083c8fe846df582e864aa9423e258fed28f117b2aecbff2caf417f0fdf1e1e2a4d4@64.225.71.153:30303?discport=30303,enode://31eecb6be3dab94ea6a4f0308cd44cf699aa7dea1eaccb0ccbfa0f57f26daad37e9fb41dafe042461a551b3f58816c4a4d8a60ef61ae2443fa12d061a7ad76a6@164.90.206.61:30303?discport=30303
       --Init.ChainSpecPath=/data/genesis.json
       --JsonRpc.Enabled=true
+      --JsonRpc.Host=0.0.0.0
+      --JsonRpc.EngineHost=0.0.0.0
+      --JsonRpc.EnginePort=8551
+      --JsonRpc.EnabledModules=Eth,Subscribe,Trace,TxPool,Web3,Personal,Proof,Net,Parity,Health,Rpc,Debug,Admin
       --JsonRpc.JwtSecretFile=/data/jwtsecret
-    #--config=none.cfg
     volumes:
-      - 'nethermind-data:/nethermind/nethermind_db'
+      - 'nethermind-db:/nethermind/nethermind_db'
+      - 'nethermind-data:/nethermind/data'
       - type: bind
         source: ./nethermind/genesis.json
         target: /data/genesis.json
@@ -34,11 +39,11 @@ services:
   lodestar:
     image: g11tech/lodestar:devnet6-789f5
     ports:
-      - "5052:5052"
-      - "5054:5054"
+      - "9596:9596"
     command: >
       beacon
-      --execution.urls=http://nethermind:8545
+      --execution.urls=http://nethermind:8551
+      --rest.address=0.0.0.0
       --genesisStateFile=/data/testnet_spec/genesis.ssz
       --paramsFile=/data/testnet_spec/config.yaml
       --network.connectToDiscv5Bootnodes
@@ -48,7 +53,7 @@ services:
       --bootnodes="enr:-MS4QMz-WasekmD0D--VCAEQgSQWBdtzbdB1BtNO30R-d8jnPvGEVQdw_tGokJDUgtuhDDxGH-VCBG_bEr2mlehD9tMHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpDEP0jPUEhEBv__________gmlkgnY0gmlwhEDhR5WJc2VjcDI1NmsxoQMVmzh7knmX81SYb-ozUQGyczuyTUpjRSsgMpeuQbk2NIhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo"
       --bootnodes="enr:-KG4QBnPJVMgzwSpzyRXXIA1ET3OtEImV3mgsriXTvbH0KcUMV1x12Jd7KuUXbCesCds4mPiq_dQcENtfp512OWqsGglhGV0aDKQxD9Iz1BIRAb__________4JpZIJ2NIJpcIRA4UeUiXNlY3AyNTZrMaEDh6uoOe6wzCjVl1iB99DAVNhB_vZlQLJ0BXafqlyt1PaDdGNwgiMog3VkcIIjKA"
       --jwt-secret=/data/jwtsecret
-    # --checkpointSyncUrl=https://checkpoint-sync.4844-devnet-6.ethpandaops.io/
+      --checkpointSyncUrl=$CHECKPOINT_SYNC_URL
 
     volumes:
       - lodestar-data:/root/.local/share/lodestar
