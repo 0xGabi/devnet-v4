@@ -23,3 +23,8 @@ Spin up docker containers:
 docker-compose up -d
 ```
 
+
+# References
+
+* [devnet-6 by ethpandaops](https://4844-devnet-6.ethpandaops.io/)
+* [eip4844-devnet from jimmygchen](https://github.com/jimmygchen/eip4844-devnet)
