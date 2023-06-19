@@ -1,5 +1,7 @@
 #  Run Ethereum devnet-6 with EIP-4844 for testing
 
+Client pair:
+
 * Execution client: Nethermind
 * Consensus client: Lodestar
 
