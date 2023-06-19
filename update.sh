@@ -20,6 +20,7 @@ curl -s $INVENTORY_URI | jq -r '.ethereum_pairs[] | .execution.enode' > bootnode
 curl -s $INVENTORY_URI | jq -r '.ethereum_pairs[] | .execution.enode' | tr '\n' ',' > bootnodes2.txt;
 wget -O trusted_setup.txt $TRUSTED_SETUP_URI;
 cat genesis.json | jq -r '.config.chainId' > chainid.txt;
+openssl rand -base64 48 > jwtsecret
 
 cd ..
 
