@@ -1,6 +1,9 @@
-# Running a node (Nethermind/lodestar) on EIP-4844 devnet-6
+#  Run Ethereum devnet-6 with EIP-4844 for testing
 
-Working intermitently until some bugs are fixed in clients for devnet-6.
+* Execution client: Nethermind
+* Consensus client: Lodestar
+
+Working intermittently until some bugs are fixed in clients for devnet-6.
 
 ## Run
 
