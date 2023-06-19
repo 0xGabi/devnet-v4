@@ -26,5 +26,6 @@ docker-compose up -d
 
 # References
 
-* [devnet-6 by ethpandaops](https://4844-devnet-6.ethpandaops.io/)
-* [eip4844-devnet from jimmygchen](https://github.com/jimmygchen/eip4844-devnet)
+* [devnet-6](https://4844-devnet-6.ethpandaops.io/) by @ethpandaops
+* [eip4844-devnet repo](https://github.com/jimmygchen/eip4844-devnet) by @jimmygchen
+* [EIP-4844 Devnet v6 Testing](https://hackmd.io/@jimmygchen/H1XUtBIfn) by @jimmygchen
