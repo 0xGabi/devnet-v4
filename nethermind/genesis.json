@@ -9,7 +9,7 @@
     "accountStartNonce": "0x0",
     "maximumExtraDataSize": "0xffff",
     "minGasLimit": "0x1388",
-    "networkID": "0x1a1f0ff3f",
+    "networkID": "0x1a1f0ff40",
     "MergeForkIdTransition": "0x0",
     "maxCodeSize": "0x6000",
     "maxCodeSizeTransition": "0x0",
@@ -41,12 +41,12 @@
     "eip3198Transition": "0x0",
     "eip3529Transition": "0x0",
     "eip3541Transition": "0x0",
-    "eip4895TransitionTimestamp": "0x648c204b",
-    "eip3855TransitionTimestamp": "0x648c204b",
-    "eip3651TransitionTimestamp": "0x648c204b",
-    "eip3860TransitionTimestamp": "0x648c204b",
+    "eip4895TransitionTimestamp": "0x649ecb7c",
+    "eip3855TransitionTimestamp": "0x649ecb7c",
+    "eip3651TransitionTimestamp": "0x649ecb7c",
+    "eip3860TransitionTimestamp": "0x649ecb7c",
     "terminalTotalDifficulty": "0x0",
-    "eip4844TransitionTimestamp": "0x648c21cb"
+    "eip4844TransitionTimestamp": "0x649ed2fc"
   },
   "genesis": {
     "seal": {
@@ -57,7 +57,7 @@
     },
     "difficulty": "0x01",
     "author": "0x0000000000000000000000000000000000000000",
-    "timestamp": "0x648c1e8f",
+    "timestamp": "0x649ec3c0",
     "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "extraData": "",
     "gasLimit": "0x17D7840"
@@ -868,22 +868,22 @@
         "0x0000000000000000000000000000000000000000000000000000000000000040": "0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7"
       }
     },
-    "0xd5038998033689130e623E51478500a1015dd4Cc": {
+    "0x454b0EA7d8aD3C56D0CF2e44Ed97b2Feab4D7AF2": {
       "balance": "1000000000000000000000000000"
     },
-    "0x8e4fc0f136BA56A151FD1530D4D6695df6A0fB4A": {
+    "0xd3248BA3E5492D767F8e427Cb9C7B9D5C3972D7B": {
       "balance": "1000000000000000000000000000"
     },
-    "0xa39d087DEd393937A06EC97552e0ac5e1c3e9DF1": {
+    "0xAD01b55d7c3448B8899862eb335FBb17075d8DE2": {
       "balance": "1000000000000000000000000000"
     },
-    "0xA6473Af9d9aD2f45f707a42Ae3C2A1783435ff94": {
+    "0x7e454a14B8e7528465eeF86f0DC1da4f235d9D79": {
       "balance": "1000000000000000000000000000"
     },
-    "0xCE762116EC221746C1f8a9081eB535509d3ef238": {
+    "0x7a40026A3b9A41754a95EeC8c92C6B99886f440C": {
       "balance": "1000000000000000000000000000"
     },
-    "0x2c3B8Eb88245B03D2ee67A24b54525b4696D827f": {
+    "0x8c4D8CDD1f474510Dd70D66F2785a3a38a29AC1A": {
       "balance": "1000000000000000000000000000"
     }
   },

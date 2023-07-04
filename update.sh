@@ -1,17 +1,19 @@
 #!/bin/sh
+set -e
 
-INVENTORY_URI=https://config.4844-devnet-6.ethpandaops.io/api/v1/nodes/inventory
+BASE_URL=https://config.4844-devnet-7.ethpandaops.io
+INVENTORY_URI=$BASE_URL/api/v1/nodes/inventory
 
 # EL
-GENESIS_URI=https://config.4844-devnet-6.ethpandaops.io/el/chainspec.json
-TRUSTED_SETUP_URI=https://config.4844-devnet-6.ethpandaops.io/trusted_setup.txt
+GENESIS_URI=$BASE_URL/el/chainspec.json
+TRUSTED_SETUP_URI=$BASE_URL/trusted_setup.txt
 
 # CL
-DEPOSIT_CONTRACT_URI=https://config.4844-devnet-6.ethpandaops.io/deposit_contract.txt
-DEPOSIT_CONTRACT_BLOCK_URI=https://config.4844-devnet-6.ethpandaops.io/cl/deposit_contract_block.txt
-DEPLOY_BLOCK_URI=https://config.4844-devnet-6.ethpandaops.io/cl/deploy_block.txt
-GENESIS_CONFIG_URI=https://config.4844-devnet-6.ethpandaops.io/cl/config.yaml
-GENESIS_SSZ_URI=https://config.4844-devnet-6.ethpandaops.io/cl/genesis.ssz
+DEPOSIT_CONTRACT_URI=$BASE_URL/deposit_contract.txt
+DEPOSIT_CONTRACT_BLOCK_URI=$BASE_URL/cl/deposit_contract_block.txt
+DEPLOY_BLOCK_URI=$BASE_URL/cl/deploy_block.txt
+GENESIS_CONFIG_URI=$BASE_URL/cl/config.yaml
+GENESIS_SSZ_URI=$BASE_URL/cl/genesis.ssz
 
 # nethermind
 cd nethermind
@@ -20,7 +22,7 @@ curl -s $INVENTORY_URI | jq -r '.ethereum_pairs[] | .execution.enode' > bootnode
 curl -s $INVENTORY_URI | jq -r '.ethereum_pairs[] | .execution.enode' | tr '\n' ',' > bootnodes2.txt;
 wget -O trusted_setup.txt $TRUSTED_SETUP_URI;
 cat genesis.json | jq -r '.config.chainId' > chainid.txt;
-openssl rand -base64 48 > jwtsecret
+openssl rand -hex 32 > jwtsecret
 
 cd ..
 
