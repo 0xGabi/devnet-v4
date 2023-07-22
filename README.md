@@ -1,4 +1,4 @@
-#  Run Ethereum devnet-6 with EIP-4844 for testing
+#  Run Ethereum devnet-7 with EIP-4844 for testing
 
 Client pair:
 

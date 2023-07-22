@@ -42,7 +42,7 @@ services:
         target: /data/jwtsecret
 
   lodestar:
-    image: g11tech/lodestar:devnet36-4f036
+    image: g11tech/lodestar:devnet36-6c23a8
     ports:
       - "9596:9596"
     command: >
